@@ -1,20 +1,19 @@
 from turtle import Turtle
 
+move_distance = 70
 
 class Paddle(Turtle):
 
-    def __init__(self, position):
+    def __init__(self):
         super().__init__()
         self.shape("square")
         self.color("white")
-        self.shapesize(stretch_wid=5, stretch_len=1)
+        self.shapesize(stretch_wid=1, stretch_len=10)
         self.penup()
         self.goto(x=0, y=-280)
 
-    def go_right(self):
-        new_x = self.xcor() + 20
-        self.goto(self.ycor(), new_x)
-
     def go_left(self):
-        new_x = self.xcor() - 20
-        self.goto(self.ycor(), new_x)
+        self.backward(move_distance)
+
+    def go_right(self):
+        self.forward(move_distance)
